@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Images → PDF</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Images → PDF</h1>
+    <p class="sub">Lossless conversion. Runs on your machine, nothing leaves it.</p>
+
+    <label id="drop" class="drop">
+      <input id="file-input" type="file" multiple accept=".jpg,.jpeg,.png,.webp,.bmp,.tif,.tiff,image/*" hidden>
+      <strong>Drop images here</strong> or click to browse
+      <span>JPG, PNG, WebP, BMP, TIFF</span>
+    </label>
+
+    <div id="toolbar" class="toolbar" hidden>
+      <span id="count"></span>
+      <span class="spacer"></span>
+      <button type="button" id="sort" class="link">Sort by name</button>
+      <button type="button" id="clear" class="link">Clear all</button>
+    </div>
+    <ul id="list" class="list"></ul>
+    <p id="hint" class="hint" hidden>Drag thumbnails to reorder pages.</p>
+
+    <fieldset class="options">
+      <div>
+        <legend>Output</legend>
+        <label><input type="radio" name="mode" value="single" checked> One PDF (all images)</label>
+        <label><input type="radio" name="mode" value="separate"> One PDF per image (ZIP)</label>
+      </div>
+      <div>
+        <legend>Page size</legend>
+        <label><input type="radio" name="page" value="original" checked> Same as image</label>
+        <label><input type="radio" name="page" value="a4"> A4, fit image</label>
+      </div>
+    </fieldset>
+
+    <button id="convert" class="primary" disabled>Convert</button>
+    <p id="status" class="status" role="status"></p>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
